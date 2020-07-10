@@ -4,6 +4,7 @@ FROM ${IMAGE}
 COPY update_sources.sh /
 RUN /update_sources.sh
 
+RUN dpkg --add-architecture armel
 RUN dpkg --add-architecture armhf
 RUN dpkg --add-architecture arm64
 RUN apt-get update && apt-get install -y \
@@ -11,12 +12,15 @@ RUN apt-get update && apt-get install -y \
   python-future \
   python-numpy \
   build-essential \
+  crossbuild-essential-armel \
   crossbuild-essential-armhf \
   crossbuild-essential-arm64 \
   libusb-1.0-0-dev \
   libusb-1.0-0-dev:arm64 \
   libusb-1.0-0-dev:armhf \
+  libusb-1.0-0-dev:armel \
   zlib1g-dev \
+  zlib1g-dev:armel \
   zlib1g-dev:armhf \
   zlib1g-dev:arm64 \
   sudo \

@@ -26,8 +26,8 @@ else
 $(error $(OS) is not supported)
 endif
 
-ifeq ($(filter $(CPU),k8 armv6 armv7a aarch64 darwin),)
-$(error CPU must be k8, armv7a, armv6, aarch64, or darwin)
+ifeq ($(filter $(CPU),k8 armv6 armv7l armv7a aarch64 darwin),)
+$(error CPU must be k8, armv7a, armv7l, armv6, aarch64, or darwin)
 endif
 
 COMPILATION_MODE ?= opt
@@ -122,7 +122,7 @@ clean:
 DOCKER_CONTEXT_DIR := $(MAKEFILE_DIR)/docker
 DOCKER_WORKSPACE := $(MAKEFILE_DIR)
 DOCKER_CONTAINER_WORKSPACE := /workspace
-DOCKER_CPUS ?= k8 armv7a armv6 aarch64
+DOCKER_CPUS ?= k8 armv7a armv7l armv6 aarch64
 DOCKER_TARGETS ?=
 DOCKER_IMAGE ?= debian:stretch
 DOCKER_TAG_BASE ?= libedgetpu-cross

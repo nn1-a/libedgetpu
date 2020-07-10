@@ -27,7 +27,7 @@ $ CPU=aarch64 make
 
 Build Linux binaries inside Docker container (works on Linux and macOS):
 ```
-$ DOCKER_CPUS="k8 armv7a aarch64" DOCKER_TARGETS=libedgetpu make docker-build
+$ DOCKER_CPUS="k8 armv7a armv7l aarch64" DOCKER_TARGETS=libedgetpu make docker-build
 ```
 
 All built binaries go to the `out` directory.
